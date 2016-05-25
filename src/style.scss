@@ -33,7 +33,7 @@ h1{
         position:relative;
         z-index: 5;
         transform: scale(0);
-        animation: anim-in .5s .2s;
+        animation: anim-in .5s .2s,head 2s 2s infinite;
         animation-fill-mode: forwards;
         &:before,&:after{
                 background: #c07000;
@@ -116,7 +116,7 @@ h1{
 	    height: 60px;
         position: absolute;
         z-index: 3;
-        animation:anim-in .2s .4s,hair 1.2s .4s infinite;
+        animation:anim-in .2s .4s,hair .5s .4s infinite;
         transform: scale(0);
         animation-fill-mode: forwards;
         span{
@@ -458,7 +458,7 @@ h1{
         position: absolute;
         z-index: 5;
         transform-style: preserve-3d;
-        animation: anim-in .2s 1.8s,right-hand 1s 1.8s infinite;
+        animation: anim-in .2s 1.8s,right-hand .3s 1.8s infinite;
         transform: scale(0);
         animation-fill-mode: forwards;
         .fan{
@@ -547,9 +547,9 @@ h1{
 }
 @keyframes hair
 {
-0%   {transform: rotate(-5deg);}
-50%  {transform: rotate(5deg);}
-100% {transform: rotate(-5deg);}
+0%   {transform: translate(-2px, 0) rotate(-5deg);}
+50%  {transform: translate(2px, 0) rotate(5deg);}
+100% {transform: translate(-2px, 0) rotate(-5deg);}
 }
 
 @keyframes left-hand
@@ -570,4 +570,10 @@ h1{
 {
 0%   {transform:translate(0,-100%) scale(.2,.2); opacity: 0;}
 100% {transform:translate(0,0) scale(1,1); opacity: 1;}
+}
+@keyframes head
+{
+0%   {transform:translate(0,-2px);}
+50%   {transform:translate(0,5px);}
+100% {transform:translate(0,-2px);}
 }
