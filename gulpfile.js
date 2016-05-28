@@ -10,18 +10,18 @@ var gulp = require('gulp'),
 // 编译sass，其中plumber是防止出错崩溃的插件
 gulp.task('sass', function() {
     gulp.src('src/style.scss')
+        .pipe(plumber())
         .pipe(autoprefixer({
             browsers: ['last 2 versions', 'Android >= 4.0'],
             cascade: true, //是否美化属性值 默认：true
             remove:true //是否去掉不必要的前缀 默认：true
         }))
-        .pipe(plumber())
         .pipe(sass())
         .pipe(minifyCss())
         .pipe(gulp.dest('dist'));
 });
 
-// 编译jade
+// html任务
 gulp.task('html', function() {
     gulp.src('src/index.html')
         .pipe(plumber())
